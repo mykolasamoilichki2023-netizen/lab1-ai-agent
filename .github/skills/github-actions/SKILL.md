@@ -22,7 +22,7 @@ description: "Застосовуйте для створення та перев
 - `.github/workflows/ci.yml` з назвою workflow `CI`.
 - Тригери `push` і `pull_request` для гілок `develop` та `master`, а також `workflow_dispatch`.
 - Job `build` із `strategy.fail-fast: false` і матрицею `ubuntu-latest`, `windows-latest`, `macos-latest`.
-- Кроки `actions/checkout@v4`, `actions/setup-node@v4` із `node-version: 24` та `cache: npm`, а потім лише запуск локального скрипта: на Windows `scripts\ci.bat` через `shell: cmd`, на Linux/macOS `bash scripts/ci.sh`.
+- Кроки `actions/checkout@v5`, `actions/setup-node@v5` із `node-version: 24` та `cache: npm`, а потім лише запуск локального скрипта: на Windows `scripts\ci.bat` через `shell: cmd`, на Linux/macOS `bash scripts/ci.sh`.
 
 У `ci.yml` заборонено дублювати npm-команди або самостійно виконувати складання й тести: усі ці дії належать `ci.sh` і `ci.bat`.
 
@@ -46,7 +46,7 @@ description: "Застосовуйте для створення та перев
 actionlint .github/workflows/ci.yml
 ```
 
-Переконайся, що у файлі є всі runner-и, обидва тригери з гілками, `workflow_dispatch`, `fail-fast: false`, checkout@v4 і setup-node@v4 з Node.js 24 та npm cache. Перевір відсутність npm-команд безпосередньо у workflow:
+Переконайся, що у файлі є всі runner-и, обидва тригери з гілками, `workflow_dispatch`, `fail-fast: false`, checkout@v5 і setup-node@v5 з Node.js 24 та npm cache. Перевір відсутність npm-команд безпосередньо у workflow:
 
 ```powershell
 Select-String -Path .github/workflows/ci.yml -Pattern '\bnpm\s+(ci|install|run|test|build)\b'
