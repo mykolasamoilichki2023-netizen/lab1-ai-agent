@@ -13,7 +13,7 @@ description: "Створює основу проєкту hello мовою TypeSc
 
 1. Виклич skill `project-scaffold` із параметрами: назва `hello`, мова `TypeScript`.
 2. Ідемпотентно створи або доповни `docs/usage.md`, попередньо перевіривши й прочитавши файл, якщо він існує. Збережи інший його вміст і не дублюй розділи чи команди.
-3. У `docs/usage.md` зазнач команди запуску агента `/init` і `/check`, а також локальної перевірки: `npm ci`, `npm run build`, `npm test`, `node dist/hello.js`, `scripts\ci.bat` або `bash scripts/ci.sh`.
+3. У `docs/usage.md` зазнач команди запуску агента `/lab-init` і `/check`, а також локальної перевірки: `npm ci`, `npm run build`, `npm test`, `node dist/hello.js`, `scripts\ci.bat` або `bash scripts/ci.sh`.
 4. Не створюй тестів, конфігурації складання чи CI workflow на цьому етапі.
 
 ## Очікувані файли
@@ -27,7 +27,7 @@ description: "Створює основу проєкту hello мовою TypeSc
 Test-Path src/hello.ts -PathType Leaf
 Select-String -Path src/hello.ts -SimpleMatch 'Hello World'
 Select-String -Path README.md -SimpleMatch 'npm run start'
-Select-String -Path docs/usage.md -SimpleMatch '/init', '/check', 'npm ci', 'npm run build', 'npm test', 'node dist/hello.js', 'scripts\ci.bat', 'bash scripts/ci.sh'
+Select-String -Path docs/usage.md -SimpleMatch '/lab-init', '/check', 'npm ci', 'npm run build', 'npm test', 'node dist/hello.js', 'scripts\ci.bat', 'bash scripts/ci.sh'
 ```
 
 Повтори перевірку наявності рядків `.gitignore` згідно з [project-scaffold](../skills/project-scaffold/SKILL.md). Не запускай складання чи тести до `/create-build`.

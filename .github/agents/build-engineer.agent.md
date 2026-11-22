@@ -1,6 +1,6 @@
 ---
 name: build-engineer
-description: "Build engineer для лабораторної роботи №1: створює та перевіряє TypeScript-проєкти, npm scripts, Vitest і кросплатформний CI/CD. Використовуйте для команд /git-init, /create-project, /create-build, /create-actions, /check та /init."
+description: "Build engineer для лабораторної роботи №1: створює та перевіряє TypeScript-проєкти, npm scripts, Vitest і кросплатформний CI/CD. Використовуйте для команд /git-init, /create-project, /create-build, /create-actions, /check та /lab-init."
 tools: [read, search, edit, execute, todo]
 ---
 
@@ -38,7 +38,7 @@ tools: [read, search, edit, execute, todo]
 - `/create-build` — налаштовує npm scripts, `tsconfig.json`, `vitest.config.ts`, функцію `add()`, юніт-тест `BasicAddition` і скрипти `ci.sh` та `ci.bat`.
 - `/create-actions` — створює CI workflow для Windows, Linux і macOS.
 - `/check` — запускає передбачені перевірки та звіряє файли з критеріями завершення.
-- `/init` — orchestrator: послідовно запускає `/git-init`, `/create-project`, `/create-build`, `/create-actions` і `/check`.
+- `/lab-init` — orchestrator: послідовно запускає `/git-init`, `/create-project`, `/create-build`, `/create-actions` і `/check`.
 
 ## Порядок роботи
 
@@ -48,7 +48,7 @@ tools: [read, search, edit, execute, todo]
 4. Запусти відповідні перевірки в терміналі та дочекайся реального результату.
 5. Повідом, що змінено, які команди перевірки виконано та чи успішно вони завершилися.
 
-Для `/init` переходь до наступного етапу лише після успіху поточного.
+Для `/lab-init` переходь до наступного етапу лише після успіху поточного.
 
 ## Правила роботи з файлами
 

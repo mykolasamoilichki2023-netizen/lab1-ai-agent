@@ -12,13 +12,13 @@
 
 ## Ідея проєкту
 
-Агент `build-engineer` за командою `/init` послідовно налаштовує Git, генерує кросплатформний застосунок Hello World на TypeScript із тестом `BasicAddition`, створює скрипти `ci.sh` і `ci.bat`, а також GitHub Actions workflow для Windows, Linux і macOS. Скрипти встановлюють залежності, збирають проєкт, запускають тести та створюють файл застосунку `dist/hello.js`. Його можна запустити через `npm run start` або `node dist/hello.js`.
+Агент `build-engineer` за командою `/lab-init` послідовно налаштовує Git, генерує кросплатформний застосунок Hello World на TypeScript із тестом `BasicAddition`, створює скрипти `ci.sh` і `ci.bat`, а також GitHub Actions workflow для Windows, Linux і macOS. Скрипти встановлюють залежності, збирають проєкт, запускають тести та створюють файл застосунку `dist/hello.js`. Його можна запустити через `npm run start` або `node dist/hello.js`.
 
 ## Як запустити агента
 
 1. Відкрити репозиторій у VS Code.
 2. У Copilot Chat вибрати агента `build-engineer`.
-3. Виконати команду `/init`.
+3. Виконати команду `/lab-init`.
 
 ## Структура репозиторію
 
@@ -34,7 +34,7 @@
 │   │   ├── create-build.prompt.md
 │   │   ├── create-project.prompt.md
 │   │   ├── git-init.prompt.md
-│   │   └── init.prompt.md
+│   │   └── lab-init.prompt.md
 │   ├── skills/
 │   │   ├── build-and-test/SKILL.md
 │   │   ├── github-actions/SKILL.md

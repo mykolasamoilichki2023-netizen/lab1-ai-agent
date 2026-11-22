@@ -17,13 +17,15 @@
 | `.github/prompts/create-build.prompt.md` | Команда створення конфігурації складання, тестів і CI-скриптів. |
 | `.github/prompts/create-actions.prompt.md` | Команда створення GitHub Actions workflow. |
 | `.github/prompts/check.prompt.md` | Команда перевірки результату. |
-| `.github/prompts/init.prompt.md` | Orchestrator, який викликає етапи ініціалізації по черзі. |
+| `.github/prompts/lab-init.prompt.md` | Orchestrator, який викликає етапи ініціалізації по черзі. |
 | `.github/workflows/ci.yml` | CI workflow для Windows, Linux і macOS. |
 | `package.json` | npm-залежності та scripts для складання й тестування. |
 | `tsconfig.json` | Конфігурація компілятора TypeScript. |
 | `vitest.config.ts` | Конфігурація Vitest. |
 
 Для TypeScript замість `CMakeLists.txt`, наведеного в методичці, використовуються `package.json`, `tsconfig.json` і `vitest.config.ts`.
+
+Orchestrator названо lab-init замість init з методички, бо /init — вбудована команда GitHub Copilot у VS Code, яка генерує .github/copilot-instructions.md і перехоплює виклик.
 
 ## Каталог складання та Git
 
@@ -46,13 +48,13 @@
 | `create-build` | Налаштовує npm scripts, конфігурації TypeScript/Vitest і скрипти `ci.sh` та `ci.bat`. | Після створення вихідного коду, щоб скласти й протестувати проєкт. |
 | `create-actions` | Створює GitHub Actions workflow для Windows, Linux і macOS, який запускає платформний CI-скрипт. | Після налаштування локальної збірки та тестів. |
 | `check` | Перевіряє створені файли, конфігурацію, складання, тести та результат запуску. | Після створення проєкту або окремого етапу, щоб підтвердити його результат. |
-| `init` | Оркеструє `git-init` → `create-project` → `create-build` → `create-actions` → `check` і зупиняється з описом помилки, якщо етап не пройшов. | Для повного налаштування проєкту однією командою `/init`. |
+| `lab-init` | Оркеструє `git-init` → `create-project` → `create-build` → `create-actions` → `check` і зупиняється з описом помилки, якщо етап не пройшов. | Для повного налаштування проєкту однією командою `/lab-init`. |
 
 ## Потік даних
 
 Між етапами передаються назва проєкту, мова програмування та потрібні параметри конфігурації, перелік створених або оновлених файлів і результат перевірок. Кожен наступний етап використовує цей контекст, щоб продовжити роботу над тим самим проєктом і повідомити orchestrator про успіх або помилку.
 
-## Послідовність `/init`
+## Послідовність `/lab-init`
 
 Orchestrator запускає етапи в такому порядку:
 
@@ -83,7 +85,7 @@ Workflow `ci.yml` лише вибирає потрібний платформн�
 
 ```mermaid
 flowchart TD
-    User[Користувач у VS Code] -->|/init| Orchestrator[init.prompt.md]
+    User[Користувач у VS Code] -->|/lab-init| Orchestrator[lab-init.prompt.md]
     Orchestrator --> Git[git-init]
     Git -->|контекст і результат| Project[create-project]
     Project -->|контекст і створені файли| Build[create-build]
